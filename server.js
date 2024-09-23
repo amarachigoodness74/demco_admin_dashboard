@@ -1,0 +1,50 @@
+const express = require("express");
+const router = require("./routes");
+
+const port = 7000;
+const app = express();
+app.use(express.json());
+
+// Data Source, could be replaced with a real database
+const todos = [
+  {
+    title: "Todo 1",
+    desc: "This is my first Todo",
+    completed: true,
+  },
+
+  {
+    title: "Todo 2",
+    desc: "This is my second Todo",
+    completed: true,
+  },
+
+  {
+    title: "Todo 3",
+    desc: "This is my third Todo",
+    completed: true,
+  },
+
+  {
+    title: "Todo 4",
+    desc: "This is my fourth Todo",
+    completed: true,
+  },
+
+  {
+    title: "Todo 5",
+    desc: "This is my fifth Todo",
+    completed: true,
+  },
+];
+
+app.get("/", (request, response) => {
+    response.status(200).json({message: "Welcome!!!"});
+  });
+
+app.use('/todos', router);
+
+// App listens to incoming requests here
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
