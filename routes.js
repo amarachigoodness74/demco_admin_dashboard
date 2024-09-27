@@ -1,33 +1,6 @@
-const router = require('express').router;
-
-// Data Source, could be replaced with a real database
-const todos = [
-    {
-      title: "Todo 1",
-      desc: "This is my first Todo",
-      completed: true,
-    },
-    {
-      title: "Todo 2",
-      desc: "This is my second Todo",
-      completed: true,
-    },
-    {
-      title: "Todo 3",
-      desc: "This is my third Todo",
-      completed: true,
-    },
-    {
-      title: "Todo 4",
-      desc: "This is my fourth Todo",
-      completed: true,
-    },
-    {
-      title: "Todo 5",
-      desc: "This is my fifth Todo",
-      completed: true,
-    },
-  ];
+const express = require("express");
+const router = express.Router();
+const todos = require("./todos");
 
 // Endpoint starts here
 router.get("/", (request, response) => {
@@ -66,5 +39,5 @@ router.delete("/:id", (request, response) => {
   }
   response.status(404).json({ msg: "Todo not found" });
 });
-  
-   module.exports = router;
+
+module.exports = router;
