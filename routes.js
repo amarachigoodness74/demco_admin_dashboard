@@ -8,9 +8,9 @@ router.get("/", (request, response) => {
 });
 
 router.get("/:id", (request, response) => {
-  response
-    .status(200)
-    .json({ data: todos.find((todo) => todo.id === request.params.id) });
+  response.status(200).json({
+    data: todos.find((todo) => Number(todo.id) === Number(request.params.id)),
+  });
 });
 
 router.post("/", (request, response) => {
@@ -19,7 +19,9 @@ router.post("/", (request, response) => {
 });
 
 router.put("/:id", (request, response) => {
-  const todo = todos.find((todo) => todo.id === request.params.id);
+  const todo = todos.find(
+    (todo) => Number(todo.id) === Number(request.params.id)
+  );
   if (todo) {
     const { title, desc, completed } = request.body;
     todo.title = title;
@@ -32,7 +34,9 @@ router.put("/:id", (request, response) => {
 });
 
 router.delete("/:id", (request, response) => {
-  const todoIndex = todos.findIndex((todo) => (todo.id = request.params.id));
+  const todoIndex = todos.findIndex(
+    (todo) => Number(todo.id) === Number(request.params.id)
+  );
   if (todoIndex) {
     todos.splice(todoIndex, 1);
     response.status(200).json({ msg: "Todo deleted successfully" });
