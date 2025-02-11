@@ -6,7 +6,8 @@ A simple ToDo list api using express.js
 ## Installation
 Clone the repository and cd into the project directory  
 Run `npm install` or `yarn install` to install all project dependencies  
-Run `npm startp` or `yarn start` to start the local server which will run on localhost:1337  
+Run `npm start` or `yarn start` to start the local server which will run on localhost:1337  
+Run `npm test` or `yarn test` to run test file(s)
 
 ## Usage
 ### API Endpoints
